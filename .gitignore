@@ -2,5 +2,6 @@
 .git/
 .gitignore
 Dockerfile
+LICENSE
 bin/
 pkg/
