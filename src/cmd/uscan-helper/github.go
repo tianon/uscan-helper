@@ -23,7 +23,7 @@ func githubHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	data := HtmlTemplate{
-		Title: base,
+		Title:    base,
 		Versions: map[string]TemplateVersion{},
 	}
 
