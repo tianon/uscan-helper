@@ -18,6 +18,7 @@ func githubHandler(w http.ResponseWriter, r *http.Request) {
 	git := exec.Command("git", "ls-remote", "--tags", base+".git")
 	tags, err := git.Output()
 	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
 		log.Printf("git ls-remote %s failed: %v", base, err)
 		return
 	}
@@ -41,6 +42,7 @@ func githubHandler(w http.ResponseWriter, r *http.Request) {
 
 	out, err := renderTemplate(data)
 	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
 		log.Printf("error rendering: %v", err)
 		return
 	}
