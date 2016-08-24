@@ -46,5 +46,9 @@ func githubHandler(w http.ResponseWriter, r *http.Request) {
 		log.Printf("error rendering: %v", err)
 		return
 	}
+
+	w.Header().Set("Cache-Control", "max-age=3600")
+	w.WriteHeader(http.StatusOK)
+
 	fmt.Fprintln(w, out)
 }
