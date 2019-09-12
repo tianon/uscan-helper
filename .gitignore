@@ -1,7 +1,5 @@
-.dockerignore
-.git/
-.gitignore
-Dockerfile
-LICENSE
-bin/
-pkg/
+**
+!**/*.go
+!go.mod
+!go.sum
+!vendor/**
