@@ -15,7 +15,7 @@ func githubHandler(w http.ResponseWriter, r *http.Request) {
 	base := fmt.Sprintf("https://github.com/%s/%s", vars["user"], vars["repo"])
 
 	// TODO parse "git ls-remote --tags" output
-	git := exec.Command("git", "ls-remote", "--tags", base+".git")
+	git := exec.Command("git", "ls-remote", "--tags", "--", base+".git")
 	tags, err := git.Output()
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
